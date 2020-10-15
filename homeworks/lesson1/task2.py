@@ -18,16 +18,10 @@ if not total_seconds_input.isdigit():
 else:
     total_seconds = int(total_seconds_input)
     hours = total_seconds // 3600
-    hours_str = str(hours)
-    if hours < 10:
-        hours_str = "0" + hours_str
+    hours_str = str(hours) if hours >= 10 else "0" + str(hours)
     hours_modulo = total_seconds % 3600
     minutes = hours_modulo // 60
-    minutes_str = str(minutes)
-    if minutes < 10:
-        minutes_str = "0" + minutes_str
+    minutes_str = str(minutes) if minutes >= 10 else "0" + str(minutes)
     seconds = hours_modulo % 60
-    seconds_str = str(seconds)
-    if seconds < 10:
-        seconds_str = "0" + seconds_str
+    seconds_str = str(seconds) if seconds >= 10 else "0" + str(seconds)
     print(f"Количество часов, минут и секунд в формате hh:mm:ss {hours_str}:{minutes_str}:{seconds_str}")
