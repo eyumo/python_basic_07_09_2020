@@ -1,5 +1,5 @@
 """
-Узнайте у пользователя число n. Найдите сумму чисел n + nn + nnn. Например, пользователь ввёл число 3. Считаем 3 + 33 + 333 = 369
+Пользователь вводит целое положительное число. Найдите самую большую цифру в числе. Для решения используйте цикл while и арифметические операции.
 """
 
 user_input = input("Введите целое число: ")
@@ -16,8 +16,12 @@ while user_input_attempts > user_input_counter:
 if not user_input.isdigit():
     print(f"Вы ввели не целое число. Превышено допустимое количество попыток {user_input_attempts}")
 else:
-    n = int(user_input)
-    nn = int(user_input + user_input)
-    nnn = int(user_input + user_input + user_input)
-    result = n + nn + nnn
-    print(f"{n} + {nn} + {nnn} = {result}")
+    user_number = int(user_input)
+    max_number = 0
+    while user_number:
+        last_digit_in_number = user_number % 10
+        if last_digit_in_number > max_number:
+            max_number = last_digit_in_number
+        user_number = user_number // 10
+    else:
+        print(f"Максимальная цифра в числе {max_number}")
